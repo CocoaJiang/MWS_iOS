@@ -1,0 +1,6 @@
+framework module Pods_meiwushuo_new {
+  umbrella header "Pods-meiwushuo_new-umbrella.h"
+
+  export *
+  module * { export * }
+}

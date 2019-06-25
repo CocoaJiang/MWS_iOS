@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'meiwushuo_new' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+ pod 'HWPanModal'
+pod 'TZImagePickerController'
+pod 'DZNEmptyDataSet'
+pod 'AFNetworking'
+pod 'SDCycleScrollView'
+pod 'IQKeyboardManager'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'SDWebImage'
+pod 'AliPay', '~> 2.1.2'
+pod 'Masonry'
+  # Pods for meiwushuo_new
+
+  target 'meiwushuo_newTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'meiwushuo_newUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

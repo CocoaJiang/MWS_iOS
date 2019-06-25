@@ -1,0 +1,6 @@
+framework module Pods_meiwushuo_newTests {
+  umbrella header "Pods-meiwushuo_newTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
