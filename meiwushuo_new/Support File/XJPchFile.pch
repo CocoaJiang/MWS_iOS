@@ -9,6 +9,31 @@
 
 
 
+//渠道ID
+#define registerFlag @"11343"
+#define ERRORTXT @"网络错误"
+#define NOImg @"QHnoImg"
+
+//QQ
+#define QQAppKey @""
+#define QQAppId @""
+//wechat
+#define WechatAppId @"wx44687471d25cf978"
+#define WechatAppSecret @"339df8e031c3b8006cc89f1d0e717ee7"
+//facebook
+#define FacebookApiKey @""
+#define FacebookAppSecret @""
+//twitter
+#define TwitterKey @""
+#define TwitterSecret @""
+#define TwitterRedirectUri @""
+//环信
+#define IMkey @"1100190411084579#meiwusay"
+//极光
+#define JpushAppKey @"61a021ecb35ae0e0a506375d"
+//Bugly
+#define BuglyId @"6e42756cc9"
+//900059134
 
 
 #ifndef XJPchFile_pch
@@ -20,8 +45,6 @@ alpha:a]
 #define DINAFONT @"DINAlternate-Bold"
 #define APPMAINCOLOR RGBA(254,160,248,1)
 #define APPMAINTEXTCOLOR RGBA(252, 77, 252,1)
-
-
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height //if X = 40
 #define kNavBarHeight 44.0
 #define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
@@ -31,9 +54,12 @@ alpha:a]
 #define SCREENH_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ((NSInteger)(([[UIScreen mainScreen] currentMode].size.height/[[UIScreen mainScreen] currentMode].size.width)*100) == 216) : NO)
 
+#define KDefaultImage [UIImage imageNamed:@"QHnoImg"]
+
 
 #import "URI.h"
 #import "Tools.h"
+#import "Config.h"
 #import "UIView+Extension.h"
 #import "UITableView+ZXJTableviewCategory.h"
 #import "NSString+Seleted.h"
@@ -49,5 +75,41 @@ alpha:a]
 #import <MJExtension/MJExtension.h>
 #import <HWPanModal/HWPanModal.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "UINavigationController+TZPopGesture.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UIApplication+GetNav.h"
+#import "XJNavigationController.h"
+#import "HttpTool.h"
+
+#define REFUSHARRAY @[@"a7i",@"a7j",@"a7k",@"a7l",@"a7m",@"a7n",@"a7o",@"a7p",@"a7q",@"a7r",@"a7s",@"a7t",@"a7u",@"a7v",@"a7w",@"a7x",@"a7y",@"a7z"]
+
+#define connectname @"xin-"//数据互通标志
+//正式域名
+//#define purl @"https://appapi.mwsvip.cn/api/public/"
+//测试环境本底
+//#define purl @"http://192.168.5.2/appapi/api/public/"
+
+
+//测试环境2
+#define purl @"http://apidev.mwsvip.cn/api/public/"
+
+//#define h5url @"http://www.minihuoguo.com"
+#define h5url @"http://mwsbest.mwsvip.cn/"
+
+#define minstr(a) [NSString stringWithFormat:@"%@",a]
+#define GetValue(dic,key) [NSString stringWithFormat:@"%@",[dic valueForKey:key]]
+
+#define KTEXTCOLOR RGBA(51,51,51,1)
+
+#define KTEXTGRAYCOLOR RGBA(153,153,153,1)
+
+#define KREDCOKOR RGBA(239,9,9,1)
+
+#define rgba(r,g,b,a) RGBA(r,g,b,a)
+
+#define RGB(r,g,b) RGBA(r,g,b,1)
+
+#define KBGCOLOR [UIColor groupTableViewBackgroundColor]
 
 #endif /* XJPchFile_pch */

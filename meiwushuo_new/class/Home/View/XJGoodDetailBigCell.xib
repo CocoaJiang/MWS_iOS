@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="XJGoodDetailBigCell">
+            <rect key="frame" x="0.0" y="0.0" width="464" height="148"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="464" height="148"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goodsplace" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-8c-Cde">
+                        <rect key="frame" x="10" y="10" width="128" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="UMW-8c-Cde" secondAttribute="height" multiplier="1:1" id="Zpn-gA-bO8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="百雀羚水嫩倍现盈透精华水补水保湿 爽肤水女收缩.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRI-o3-CSF">
+                        <rect key="frame" x="148" y="10" width="306" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="eVc-Xy-Asf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360252人参团" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO1-Me-C9v">
+                        <rect key="frame" x="148" y="61" width="101" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前折扣:￥300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz4-Sk-God">
+                        <rect key="frame" x="148" y="84" width="108.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场价:￥210 拷贝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP7-vI-TWw">
+                        <rect key="frame" x="148" y="107" width="125" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11X-C6-7sT">
+                        <rect key="frame" x="394" y="113" width="60" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="RBV-fk-vlr"/>
+                            <constraint firstAttribute="height" constant="25" id="Zts-bH-rsm"/>
+                        </constraints>
+                        <state key="normal" title="去拼团"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="pP7-vI-TWw" firstAttribute="leading" secondItem="UMW-8c-Cde" secondAttribute="trailing" constant="10" id="5jT-oK-DsK"/>
+                <constraint firstItem="UMW-8c-Cde" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="75v-ZW-3jO"/>
+                <constraint firstItem="vz4-Sk-God" firstAttribute="leading" secondItem="UMW-8c-Cde" secondAttribute="trailing" constant="10" id="AMf-um-dgg"/>
+                <constraint firstItem="yRI-o3-CSF" firstAttribute="leading" secondItem="UMW-8c-Cde" secondAttribute="trailing" constant="10" id="Ho1-Ny-6Uk"/>
+                <constraint firstItem="UMW-8c-Cde" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="LDh-C0-ZHw"/>
+                <constraint firstItem="yRI-o3-CSF" firstAttribute="top" secondItem="UMW-8c-Cde" secondAttribute="top" id="T5i-we-bEC"/>
+                <constraint firstItem="BO1-Me-C9v" firstAttribute="top" secondItem="yRI-o3-CSF" secondAttribute="bottom" constant="3" id="Vbh-hm-dfe"/>
+                <constraint firstAttribute="trailing" secondItem="yRI-o3-CSF" secondAttribute="trailing" constant="10" id="ZW5-uA-PMY"/>
+                <constraint firstAttribute="bottom" secondItem="11X-C6-7sT" secondAttribute="bottom" constant="10" id="kgb-sd-9Zl"/>
+                <constraint firstAttribute="bottom" secondItem="UMW-8c-Cde" secondAttribute="bottom" constant="10" id="m7a-v2-11D"/>
+                <constraint firstItem="pP7-vI-TWw" firstAttribute="top" secondItem="vz4-Sk-God" secondAttribute="bottom" constant="5" id="rgk-Cy-Osb"/>
+                <constraint firstItem="vz4-Sk-God" firstAttribute="top" secondItem="BO1-Me-C9v" secondAttribute="bottom" constant="5" id="sFV-4k-JaI"/>
+                <constraint firstItem="BO1-Me-C9v" firstAttribute="leading" secondItem="UMW-8c-Cde" secondAttribute="trailing" constant="10" id="uYK-La-jKz"/>
+                <constraint firstAttribute="trailing" secondItem="11X-C6-7sT" secondAttribute="trailing" constant="10" id="x51-AP-HD5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="464" height="148"/>
+            <connections>
+                <outlet property="gobuybutton" destination="11X-C6-7sT" id="aQF-w3-hjb"/>
+                <outlet property="icon" destination="UMW-8c-Cde" id="TyK-PB-EPD"/>
+                <outlet property="marketPrice" destination="pP7-vI-TWw" id="Ana-i3-SCd"/>
+                <outlet property="number" destination="BO1-Me-C9v" id="Cyp-VW-yma"/>
+                <outlet property="price" destination="vz4-Sk-God" id="LbP-7v-Pbx"/>
+                <outlet property="title" destination="yRI-o3-CSF" id="JjS-IH-7Ou"/>
+            </connections>
+            <point key="canvasLocation" x="369.56521739130437" y="186.16071428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="goodsplace" width="700" height="712"/>
+    </resources>
+</document>

@@ -15,6 +15,8 @@ IB_DESIGNABLE
 @property (nonatomic, assign)CGFloat height;
 @property (nonatomic, assign)CGFloat centerX;
 @property (nonatomic, assign)CGFloat centerY;
+@property (nonatomic, assign)CGFloat right;
+@property (nonatomic, assign)CGFloat bootom;
 @property (nonatomic, assign)CGSize size;
 @property(nonatomic, assign) IBInspectable CGFloat borderWidth;
 @property(nonatomic, assign) IBInspectable UIColor *borderColor;
@@ -36,4 +38,9 @@ IB_DESIGNABLE
 - (BOOL)isShowOnWindow;
 
 - (UIViewController *)parentController;
+
+
+-(void)makeYuanWithScle:(CGFloat)scle andWithToplef:(BOOL)topLeft andWithTopRight:(BOOL)topRight andWithBootomLeft:(BOOL)bootomLeft andWithBootomRight:(BOOL)bootomRight;
+
+
 @end

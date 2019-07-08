@@ -16,10 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [UINavigationBar appearance].shadowImage = [UIImage new];
-    [[UINavigationBar appearance] setBarTintColor:APPMAINCOLOR];
-    [UINavigationBar appearance].translucent = NO;
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [UINavigationBar appearance].shadowImage = nil;
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [UINavigationBar appearance].translucent = YES;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : KTEXTCOLOR}];
     [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CYLTabBarController/CYLTabBarController.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XJTabBarController : UITabBarController
-
+@interface XJTabBarController : CYLTabBarController
+- (instancetype)initWithContext:(NSString *)context;
 @end
 
 NS_ASSUME_NONNULL_END

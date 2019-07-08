@@ -58,6 +58,16 @@
     return self.frame.size.height;
 }
 
+-(CGFloat)right{
+    
+    return self.frame.size.width+self.frame.origin.x;
+}
+
+-(CGFloat)bootom{
+    return self.frame.size.height+self.frame.origin.y;
+}
+
+
 - (void)setSize:(CGSize)size
 {
     CGRect frame = self.frame;
@@ -168,5 +178,22 @@
     }
     return nil;
 }
+
+-(void)makeYuanWithScle:(CGFloat)scle andWithToplef:(BOOL)topLeft andWithTopRight:(BOOL)topRight andWithBootomLeft:(BOOL)bootomLeft andWithBootomRight:(BOOL)bootomRight{
+    CGRect bounds = self.bounds;
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
+                                                   byRoundingCorners:(topLeft? UIRectCornerTopLeft : 0) |
+                              (topRight? UIRectCornerTopRight : 0) |
+                              (bootomLeft? UIRectCornerBottomLeft : 0) |
+                              (bootomRight? UIRectCornerBottomRight : 0)
+                                                         cornerRadii:CGSizeMake(scle, scle)];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = bounds;
+    maskLayer.path = maskPath.CGPath;
+    [self.layer addSublayer:maskLayer];
+    self.layer.mask = maskLayer;
+
+}
+
 
 @end

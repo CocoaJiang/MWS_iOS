@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="XJHomeGoodsCell">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="280"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="280"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goodsplace" translatesAutoresizingMaskIntoConstraints="NO" id="Rc8-q9-3CN">
+                        <rect key="frame" x="5" y="5" width="190" height="190"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Rc8-q9-3CN" secondAttribute="height" multiplier="1:1" id="5LB-nw-CB4"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbA-ha-55M">
+                        <rect key="frame" x="140" y="251" width="50" height="24"/>
+                        <color key="backgroundColor" red="1" green="0.21655844451550277" blue="0.20465911108710955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Xw6-G6-RcK"/>
+                            <constraint firstAttribute="width" constant="50" id="bc9-6O-TKz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="详情"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019ins高帮帆布鞋女酒红匡威经典笑口组...      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bw5-bw-sM5">
+                        <rect key="frame" x="5" y="200" width="190" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0万人付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUT-xK-jaR">
+                        <rect key="frame" x="73.5" y="256.5" width="61.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥:389.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NT-E9-pvn">
+                        <rect key="frame" x="5" y="254" width="63.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="9NT-E9-pvn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="0Bs-7q-6Vg"/>
+                <constraint firstAttribute="trailing" secondItem="qbA-ha-55M" secondAttribute="trailing" constant="10" id="20u-lg-XnX"/>
+                <constraint firstItem="UUT-xK-jaR" firstAttribute="leading" secondItem="9NT-E9-pvn" secondAttribute="trailing" constant="5" id="267-3q-zRY"/>
+                <constraint firstItem="Rc8-q9-3CN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="A5Z-kS-w2m"/>
+                <constraint firstAttribute="trailing" secondItem="Rc8-q9-3CN" secondAttribute="trailing" constant="5" id="Byh-Q6-fNf"/>
+                <constraint firstItem="UUT-xK-jaR" firstAttribute="centerY" secondItem="9NT-E9-pvn" secondAttribute="centerY" id="LBz-1M-eeY"/>
+                <constraint firstItem="Rc8-q9-3CN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="NEA-zx-eO6"/>
+                <constraint firstAttribute="bottom" secondItem="qbA-ha-55M" secondAttribute="bottom" constant="5" id="PXZ-5g-5Pz"/>
+                <constraint firstAttribute="trailing" secondItem="Bw5-bw-sM5" secondAttribute="trailing" constant="5" id="QcQ-b3-yhe"/>
+                <constraint firstItem="Bw5-bw-sM5" firstAttribute="top" secondItem="Rc8-q9-3CN" secondAttribute="bottom" constant="5" id="SpJ-fv-QZZ"/>
+                <constraint firstAttribute="trailing" secondItem="qbA-ha-55M" secondAttribute="trailing" constant="10" id="bS2-ec-RBd"/>
+                <constraint firstItem="qbA-ha-55M" firstAttribute="centerY" secondItem="9NT-E9-pvn" secondAttribute="centerY" id="iVE-Id-iu6"/>
+                <constraint firstItem="qbA-ha-55M" firstAttribute="top" secondItem="Bw5-bw-sM5" secondAttribute="bottom" constant="10" id="kO0-Sg-pq0"/>
+                <constraint firstAttribute="bottom" secondItem="qbA-ha-55M" secondAttribute="bottom" constant="5" id="vbI-Km-JFq"/>
+                <constraint firstItem="Bw5-bw-sM5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ylY-Ag-HpZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="200" height="280"/>
+            <connections>
+                <outlet property="detailButton" destination="qbA-ha-55M" id="WRa-Wh-Ndg"/>
+                <outlet property="icon" destination="Rc8-q9-3CN" id="4GY-Zg-hWK"/>
+                <outlet property="monkey" destination="UUT-xK-jaR" id="32S-DA-09g"/>
+                <outlet property="price" destination="9NT-E9-pvn" id="9pE-Pz-XjD"/>
+                <outlet property="title" destination="Bw5-bw-sM5" id="ekC-XK-0VI"/>
+            </connections>
+            <point key="canvasLocation" x="-40.579710144927539" y="171.42857142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="goodsplace" width="700" height="712"/>
+    </resources>
+</document>

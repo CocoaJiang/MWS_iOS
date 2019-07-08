@@ -12,5 +12,8 @@
 @implementation XJTheSameCityController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"同城";
 }
+
+
 @end

@@ -41,6 +41,7 @@
         [_tableView setOthers];
         _tableView.emptyDataSetSource=self;
         _tableView.emptyDataSetDelegate=self;
+        _tableView.backgroundColor = KBGCOLOR;
         _tableView.backgroundColor = [UIColor  whiteColor];
     }
     return _tableView;
@@ -145,6 +146,10 @@
 }
 -(void)reload{
     //丢给子类去实现。。
+}
+
+-(NSArray *)expArray{
+    return @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10"];
 }
 
 @end

@@ -187,66 +187,14 @@ static Tools *tools = nil;
     }
     return nil;
 }
-+(void)showLoadStatusWithString:(NSString*)string{
-   // [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
-   // [SVProgressHUD showWithStatus:string];
-}
-
-+(void)hideView{
-   // [SVProgressHUD dismiss];
-}
-+(void)showSuccessWithString:(NSString *)scuess{
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//        [SVProgressHUD setMinimumSize:CGSizeMake(100, 50)];
-//        [SVProgressHUD showSuccessWithStatus:scuess];
-//        //  [SVProgressHUD showImage:[UIImage imageNamed:@"收藏"] status:scuess];
-//        [SVProgressHUD dismissWithDelay:0.5];
-//    });
-}
-
-
-+(void)showStatusWithString:(NSString*)string{
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//        [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
-//        [SVProgressHUD showInfoWithStatus:string];
-//        [SVProgressHUD dismissWithDelay:0.5];
-//    });
-}
-
-+(void)showErrorWithString:(NSString*)errorString{
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//        [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
-//        [SVProgressHUD showInfoWithStatus:errorString];
-//        [SVProgressHUD dismissWithDelay:0.5];
-//    });
-    
-}
 
 +(id)XJ_XibWithName:(NSString *)xibName{
     
     return [[NSBundle mainBundle] loadNibNamed:xibName owner:nil options:nil].firstObject;
 }
-
-
-
-
-+(NSString *)alertText{
-  
- 
-    return @"您还未购买过商品,暂无权限";
-    
-}
-
-
 +(UIImage *)EmptyImage{
-    
     return [UIImage imageNamed:@"empty"];
 }
-
-
 +(NSAttributedString *)ReturnWithString:(NSString *)stringOne
                            andWithColor:(UIColor *)colorOne
                             andWithFont:(CGFloat)fontOne
@@ -282,8 +230,6 @@ static Tools *tools = nil;
     return (NSAttributedString *)firstPart;
     
 }
-
-
 +(NSAttributedString *)returnWithString:(NSString *)string{
     NSDictionary *attributes = @{
                                  NSFontAttributeName:[UIFont boldSystemFontOfSize:13.0f],
@@ -291,8 +237,6 @@ static Tools *tools = nil;
                                  };
     return [[NSAttributedString alloc] initWithString:string attributes:attributes];
 }
-
-
 +(NSString *)returnBankCard:(NSString *)BankCardStr
 {
     NSString *formerStr = [BankCardStr substringToIndex:3];
@@ -311,8 +255,6 @@ static Tools *tools = nil;
     [shape setPath:rounded.CGPath];
     view.layer.mask = shape;
 }
-
-
 //这是计算肌肤穿的高度
 +(CGSize)XJCalculateTheSizeWithFont:(UIFont *)font andWithText:(NSString *)text andWithWidthMAX:(CGFloat)masW{
     CGFloat textMaxW = masW;
@@ -320,47 +262,74 @@ static Tools *tools = nil;
     CGSize textSize = [text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     return textSize;
 }
-//计算 z文字的宽度
+//计算 z文字的宽度 300 /¥:300.00
+//比如 市场价:300元 。。 // 300 -> ¥:300.00
+
+
 
 +(NSString *)retrunPriceWithPriceString:(NSString *)stringPrice{
-    
     CGFloat flat = [stringPrice floatValue];
-    
-    return [NSString stringWithFormat:@"¥%0.2f",flat];
-    
+    return [NSString stringWithFormat:@"¥ %0.2f",flat];
 }
 
 
 +(NSString*)getCurrentTimes{
-    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
-    
     [formatter setDateStyle:NSDateFormatterMediumStyle];
-    
     [formatter setTimeStyle:NSDateFormatterShortStyle];
-    
     [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss SSS"]; // --
-    
     NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
-    
     [formatter setTimeZone:timeZone];
-    
     NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
-    
     NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
-    
     return timeSp;
-    
 }
+
+
+
+
+#pragma mark - 真正的ToKen的存储。。
 
 //加密
 +(void)writeWithTokenWithString:(NSString *)string
 {
     // 获取Documents目录路径
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
+    NSString *path = [NSString stringWithFormat:@"%@/token",docDir];
+    BOOL isWriteString =[string writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    if (!isWriteString) {
+        [self showErrorWithString:@"token写入失败"];
+    }
+}
++(NSString*)readToken{
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
+    NSString *path = [NSString stringWithFormat:@"%@/token",docDir];
+    NSString *readstr = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    return readstr;
+}
++(void)deleteTokenFile{
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
+    NSString *path = [NSString stringWithFormat:@"%@/token",docDir];
+    BOOL isDelete = [[NSFileManager defaultManager]removeItemAtPath:path error:nil];
+    if (!isDelete) {
+        [self showErrorWithString:@"Token删除失败"];
+    }
+}
+
+
+
+
+
+#pragma mark - 同城圈的存储。。。。。
+
+//加密
++(void)writeWithTheCityIDWithString:(NSString *)string
+{
+    // 获取Documents目录路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
     NSString *path = [NSString stringWithFormat:@"%@/data.plist",docDir];
     //取出来
-    NSArray *array = [self readToken];
+    NSArray *array = [self readTheCityIDList];
     if (!array) {
         array = [[NSArray alloc]init];
     }
@@ -369,16 +338,16 @@ static Tools *tools = nil;
     [array_add addObject:string];
     BOOL isWriteString = [(NSArray *)array_add writeToFile:path atomically:YES];
     if (!isWriteString) {
-        [self showErrorWithString:@"存储失败"];
+       // [self showErrorWithString:@"存储失败"];
     }
 }
-+(NSArray*)readToken{
++(NSArray*)readTheCityIDList{
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
     NSString *path = [NSString stringWithFormat:@"%@/data.plist",docDir];
     NSArray *idArray = [[NSArray alloc]initWithContentsOfFile:path];
     return idArray;
 }
-+(void)deleteTokenFile{
++(void)deleteTheCityList{
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
     NSString *path = [NSString stringWithFormat:@"%@/data.plist",docDir];
     BOOL isDelete = [[NSFileManager defaultManager]removeItemAtPath:path error:nil];
@@ -394,35 +363,35 @@ static Tools *tools = nil;
 //写入图片到相册。。。。。。
 +(void)saveImaheWihtImage:(UIImage *)image
 {
-//    NSMutableArray *imageIds = [NSMutableArray array];
-//    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-//        //写入图片到相册
-//        PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
-//        //记录本地标识，等待完成后取到相册中的图片对象
-//        [imageIds addObject:req.placeholderForCreatedAsset.localIdentifier];
-//    } completionHandler:^(BOOL success, NSError * _Nullable error) {
-//        if (success)
-//        {
-//            //成功后取相册中的图片对象
-//            __block PHAsset *imageAsset = nil;
-//            PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:imageIds options:nil];
-//            [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                imageAsset = obj;
-//                *stop = YES;
-//            }];
-//            if (imageAsset)
-//            {
-//                //加载图片数据
-//                [[PHImageManager defaultManager] requestImageDataForAsset:imageAsset
-//                                                                  options:nil
-//                                                            resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-//                                                            }];
-//            }
-//
-//            [Tools showSuccessWithString:@"已经成功保存到相册"];
-//
-//        }
-//    }];
+    NSMutableArray *imageIds = [NSMutableArray array];
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        //写入图片到相册
+        PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+        //记录本地标识，等待完成后取到相册中的图片对象
+        [imageIds addObject:req.placeholderForCreatedAsset.localIdentifier];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (success)
+        {
+            //成功后取相册中的图片对象
+            __block PHAsset *imageAsset = nil;
+            PHFetchResult *result = [PHAsset fetchAssetsWithLocalIdentifiers:imageIds options:nil];
+            [result enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                imageAsset = obj;
+                *stop = YES;
+            }];
+            if (imageAsset)
+            {
+                //加载图片数据
+                [[PHImageManager defaultManager] requestImageDataForAsset:imageAsset
+                                                                  options:nil
+                                                            resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+                                                            }];
+            }
+
+           // [Tools showSuccessWithString:@"已经成功保存到相册"];
+
+        }
+    }];
 }
 
 //制造一根细
@@ -431,7 +400,7 @@ static Tools *tools = nil;
     view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     return view;
 }
-//getUUID
+///getUUID
 +(NSString *)getUUID{
     NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) firstObject];
     NSString *path = [NSString stringWithFormat:@"%@/UDIDSTRING",docDir];
@@ -445,28 +414,7 @@ static Tools *tools = nil;
     }
     return [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 }
-
-
 //设计一个能存储播放记录的Plist 文件进行存储设置！！！！！！
-
-
-+(void)ShowLoading{
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleLight];
-//        [SVProgressHUD setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-//        [SVProgressHUD setFont:[UIFont systemFontOfSize:12]];
-//        [SVProgressHUD setMinimumSize:CGSizeMake(100,100)];
-//        NSMutableArray *images = [[NSMutableArray alloc]init];
-//        NSArray *array = @[@"a7i",@"a7j",@"a7k",@"a7l",@"a7m",@"a7n",@"a7o",@"a7p",@"a7q",@"a7r",@"a7s",@"a7t",@"a7u",@"a7v",@"a7w",@"a7x",@"a7y",@"a7z"];
-//        for (NSString *string in array) {
-//            UIImage *image  = [UIImage imageNamed:string];
-//            [images addObject:image];
-//        }
-//        UIImage *image = [UIImage animatedImageWithImages:images duration:0.3];
-//        [SVProgressHUD showImage:image status:@"拼命加载中...."];
-//    });
-}
-
 ///生成二维码方法
 + (UIImage *)imageWithUrl:(NSString *)url imageSize:(CGFloat)size
 {
@@ -550,6 +498,145 @@ static Tools *tools = nil;
     
 }
 
+///把时间戳转换时间////
++(NSString *)timeWithTimeIntervalString:(NSString *)timeString Format:(NSString *)format
+{
+    // 格式化时间
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.timeZone = [NSTimeZone localTimeZone];
+    // formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:+8];//这个方法获取的不准确，差8个小时
+    // formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];//这个方法也可以，准确
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:format];
+    
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]];
+    NSString* dateString = [formatter stringFromDate:date];
+    return dateString;
+}
+/////上下拉动刷新。。。。
++(MJRefreshHeader *)addHeaderRefreshWithBlock:(void (^)(void))block
+{
+    return [SYGifHeader headerWithRefreshingBlock:^{
+        block();
+    }];
+}
+
++(MJRefreshFooter *)addFooterRefreshWithBlock:(void (^)(void))block
+{
+    SYGifFoot * footer = [SYGifFoot footerWithRefreshingBlock:^{
+        block();
+    }];
+    return footer;
+}
+
+
+#pragma mark - 提示框。。。。。。
+
++(void)showLoadStatusWithString:(NSString*)string{
+    [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
+    [SVProgressHUD showWithStatus:string];
+}
+
++(void)hideView{
+    [SVProgressHUD dismiss];
+}
++(void)showSuccessWithString:(NSString *)scuess{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD setMinimumSize:CGSizeMake(100, 50)];
+        [SVProgressHUD showSuccessWithStatus:scuess];
+        [SVProgressHUD dismissWithDelay:0.5];
+    });
+}
+
+
++(void)showStatusWithString:(NSString*)string{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
+        [SVProgressHUD showInfoWithStatus:string];
+        [SVProgressHUD dismissWithDelay:0.5];
+    });
+}
+
++(void)showErrorWithString:(NSString*)errorString{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
+        [SVProgressHUD showInfoWithStatus:errorString];
+        [SVProgressHUD dismissWithDelay:0.5];
+    });
+    
+}
+
++(void)ShowLoading{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleLight];
+        [SVProgressHUD setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+        [SVProgressHUD setFont:[UIFont systemFontOfSize:12]];
+        [SVProgressHUD setMinimumSize:CGSizeMake(100,100)];
+        NSMutableArray *images = [[NSMutableArray alloc]init];
+        NSArray *array = @[@"a7i",@"a7j",@"a7k",@"a7l",@"a7m",@"a7n",@"a7o",@"a7p",@"a7q",@"a7r",@"a7s",@"a7t",@"a7u",@"a7v",@"a7w",@"a7x",@"a7y",@"a7z"];
+        for (NSString *string in array) {
+            UIImage *image  = [UIImage imageNamed:string];
+            [images addObject:image];
+        }
+        UIImage *image = [UIImage animatedImageWithImages:images duration:0.3];
+        [SVProgressHUD showImage:image status:@"拼命加载中...."];
+    });
+}
+
++(void)showSuccess:(NSString *)success andWithDoEveryThingWithBlock:(Doanything)doEverything{
+    
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
+    
+    [SVProgressHUD showSuccessWithStatus:success];
+    
+    [SVProgressHUD dismissWithDelay:1 completion:^{
+        if (doEverything) {
+            doEverything();
+        }
+        
+    }];
+    
+}
++(void)showError:(NSString *)error andWithDoEveryThingWithBlock:(Doanything)doEverything{
+    
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setMinimumSize:CGSizeMake(100, 100)];
+    [SVProgressHUD showErrorWithStatus:error];
+    [SVProgressHUD dismissWithDelay:1 completion:^{
+        if (doEverything) {
+            doEverything();
+        }
+        
+    }];
+    
+}
+
+///
++(NSAttributedString *)returnPriceMedicLineWithString:(NSString *)maketPrice{
+    NSDictionary *attribtDic = @{
+                                 NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],
+                                 NSFontAttributeName:[UIFont fontWithName:DINAFONT size:14],
+                                 NSForegroundColorAttributeName:KTEXTGRAYCOLOR,
+                                 };
+    
+    NSDictionary *attribtDic2 = @{
+                                 NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],
+                                 NSFontAttributeName:[UIFont systemFontOfSize:12],
+                                 NSForegroundColorAttributeName:KTEXTGRAYCOLOR,
+                                 };
+    NSMutableAttributedString *stting1 = [[NSMutableAttributedString alloc]initWithString:@"市场价:" attributes:attribtDic2];
+    NSAttributedString *stting = [[NSMutableAttributedString alloc]initWithString:[self retrunPriceWithPriceString:maketPrice] attributes:attribtDic];
+    [stting1 appendAttributedString:stting];
+    return (NSAttributedString *)stting1;
+}
++(XJNavigationController *)retrunNAV{
+    return [[UIApplication sharedApplication] visibleNavigationController];
+}
 
 
 @end

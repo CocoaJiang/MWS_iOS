@@ -9,23 +9,36 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SYGifFoot.h"
+#import "SYGifHeader.h"
+#import "XJNavigationController.h"
 typedef void(^ImageBlock)(UIImage *image,NSURL *imageUrl);
 typedef void(^MoreImageBlock)(NSArray *images);
 typedef void(^MoreAttestBlock)(NSArray *attesArray);
 typedef void(^ItemAction)(NSUInteger itemIndex);
 typedef void(^Doanything)(void);
 @interface Tools : NSObject
+////选择照片
 +(void)XJ_morePickerController:(UIViewController *)controller image:(MoreImageBlock)block :(NSInteger)maxCount andSeletedArray:(NSMutableArray *)seltedArray andWithAttesBlock:(MoreAttestBlock)attsBlock;
-+(void)showLoadStatusWithString:(NSString*)string;
-+(void)showStatusWithString:(NSString*)string;
-+(void)showSuccessWithString:(NSString *)scuess;
-+(void)hideView;
-+(void)showErrorWithString:(NSString*)errorString;
+///定位当前控制器
 + (UIViewController *)viewController:(UIView *)view;
+///加载XIB文件
 +(id)XJ_XibWithName:(NSString *)xibName;
-+(NSString *)alertText;
+///展示空数据页面
 +(UIImage *)EmptyImage;
+///加载
++(void)showLoadStatusWithString:(NSString*)string;
+///状态
++(void)showStatusWithString:(NSString*)string;
+///成功
++(void)showSuccessWithString:(NSString *)scuess;
+///隐藏
++(void)hideView;
+////加载
 +(void)ShowLoading;
+///失败
++(void)showErrorWithString:(NSString*)errorString;
+////配合空数据页面。。。
 +(NSAttributedString *)returnWithString:(NSString *)string;
 /*手机号隐藏*/
 +(NSString *)returnBankCard:(NSString *)BankCardStr;
@@ -52,10 +65,10 @@ byRoundingCorners:(UIRectCorner)corners
 +(CGSize)XJCalculateTheSizeWithFont:(UIFont *)font andWithText:(NSString *)text andWithWidthMAX:(CGFloat)masW;
 +(NSString *)retrunPriceWithPriceString:(NSString *)stringPrice;
 +(NSString*)getCurrentTimes;
-//写入文件
+///写入文件
 +(void)writeWithTokenWithString:(NSString *)string;
-//读取token
-+(NSArray*)readToken;
+///读取token
++(NSString*)readToken;
 ///判断是否登录
 //+(BOOL)isNeedLogin;
 ///判断是不是第一次安装
@@ -78,5 +91,15 @@ byRoundingCorners:(UIRectCorner)corners
 + (NSString *)updateTime:(NSString * )theSeverTimer;
 //返回商城价格
 +(NSAttributedString *)returnMarketPriceWithString:(NSString *)string;
-
+////把时间戳转换成时间
++ (NSString *)timeWithTimeIntervalString:(NSString *)timeString Format:(NSString *)format;
+////上拉刷新
+/////上下拉动刷新。。。。
++(SYGifHeader *)addHeaderRefreshWithBlock:(void (^)(void))block;
+////下拉刷新
++(SYGifFoot *)addFooterRefreshWithBlock:(void (^)(void))block;
+////返回带下划线的价格
++(NSAttributedString *)returnPriceMedicLineWithString:(NSString *)maketPrice;
+////返回一个NAV方便跳转
++(XJNavigationController *)retrunNAV;
 @end

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="XJAddSpellGroupTeamReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参与末代UI的拼单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-n3-IM7">
+                    <rect key="frame" x="91" y="35" width="138" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仅剩1个名额，15:32:39后结束" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkg-vS-rrF">
+                    <rect key="frame" x="44.5" y="76" width="231.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="1yl-n3-IM7" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="5xA-6H-OmA"/>
+                <constraint firstItem="rkg-vS-rrF" firstAttribute="top" secondItem="1yl-n3-IM7" secondAttribute="bottom" constant="20" id="gnu-A9-eQw"/>
+                <constraint firstItem="1yl-n3-IM7" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="35" id="u78-Ie-BD7"/>
+                <constraint firstItem="rkg-vS-rrF" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="vwt-He-pQf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
+            <connections>
+                <outlet property="disLabel" destination="rkg-vS-rrF" id="L1D-Ay-wUA"/>
+                <outlet property="title" destination="1yl-n3-IM7" id="OrE-hw-5ks"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="171.42857142857142"/>
+        </collectionReusableView>
+    </objects>
+</document>

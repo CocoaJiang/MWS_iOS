@@ -1,0 +1,6 @@
+framework module SOZOChromoplast {
+  umbrella header "SOZOChromoplast-umbrella.h"
+
+  export *
+  module * { export * }
+}

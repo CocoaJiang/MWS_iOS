@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="XJSpellGroupInduce">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyp-Hc-QZv">
+                        <rect key="frame" x="0.0" y="55.5" width="339" height="10"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="1FN-PD-3Tg"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyC-9Q-sI4">
+                        <rect key="frame" x="14" y="5" width="285" height="46"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gengduo" translatesAutoresizingMaskIntoConstraints="NO" id="Sz6-MP-6aP">
+                        <rect key="frame" x="318" y="28" width="6" height="10"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kyp-Hc-QZv" firstAttribute="top" secondItem="FyC-9Q-sI4" secondAttribute="bottom" constant="4.5" id="1jn-GK-L0y"/>
+                    <constraint firstAttribute="trailing" secondItem="FyC-9Q-sI4" secondAttribute="trailing" constant="40" id="3eQ-3e-k9N"/>
+                    <constraint firstItem="FyC-9Q-sI4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="EYD-NY-ip3"/>
+                    <constraint firstItem="Sz6-MP-6aP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VJw-pK-wIq"/>
+                    <constraint firstAttribute="trailing" secondItem="Sz6-MP-6aP" secondAttribute="trailing" constant="15" id="VsX-ee-pgs"/>
+                    <constraint firstAttribute="bottom" secondItem="kyp-Hc-QZv" secondAttribute="bottom" id="eBi-UI-Arv"/>
+                    <constraint firstItem="kyp-Hc-QZv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="foQ-FL-FoI"/>
+                    <constraint firstItem="FyC-9Q-sI4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="kHf-c2-xYn"/>
+                    <constraint firstAttribute="trailing" secondItem="kyp-Hc-QZv" secondAttribute="trailing" id="lWc-Np-Dp4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="indecelabel" destination="FyC-9Q-sI4" id="Wgr-QQ-NE9"/>
+                <outlet property="leteImage" destination="Sz6-MP-6aP" id="Iah-nr-tCO"/>
+            </connections>
+            <point key="canvasLocation" x="118.11594202898551" y="107.14285714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gengduo" width="6" height="10"/>
+    </resources>
+</document>

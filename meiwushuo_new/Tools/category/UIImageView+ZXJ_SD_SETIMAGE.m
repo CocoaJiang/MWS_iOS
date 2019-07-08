@@ -7,7 +7,6 @@
 //
 
 #import "UIImageView+ZXJ_SD_SETIMAGE.h"
-#define KDefaultImage [UIImage imageNamed:@"QHnoImg"]
 @implementation UIImageView (ZXJ_SD_SETIMAGE)
 
 -(void)XJ_setImageWithURLString:(NSString *)url_string{

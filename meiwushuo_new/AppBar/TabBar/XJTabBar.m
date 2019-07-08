@@ -23,9 +23,11 @@
         [btn setUpImageAndDownLableWithSpace:5];
         btn.titleLabel.font = [UIFont systemFontOfSize:12];
         [btn setTitleColor:[UIColor lightTextColor] forState:UIControlStateNormal];
-        
         self.centerBtn = btn;
         [self addSubview:btn];
+        
+        
+        
         
     }
     return self;
@@ -36,7 +38,9 @@
     
     [super layoutSubviews];
     
-    self.centerBtn.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.3);
+    CGFloat height =  iPhoneX?self.bounds.size.height-44:self.bounds.size.height;
+    
+    self.centerBtn.center = CGPointMake(self.bounds.size.width * 0.5, height * 0.3);
     
     int index = 0;
     CGFloat wigth = self.bounds.size.width / 5;

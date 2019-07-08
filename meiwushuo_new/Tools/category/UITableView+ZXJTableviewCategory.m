@@ -29,6 +29,8 @@
     
     self.estimatedSectionHeaderHeight = 0;
     
+    self.tableFooterView = [UIView new];
+    
 }
 
 
